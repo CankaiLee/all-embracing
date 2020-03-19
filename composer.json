@@ -1,0 +1,25 @@
+{
+    "name": "worm_of_time/all-embracing",
+    "description": "php tools",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "licankai",
+            "email": "13144429534@163.com"
+        },
+        {
+            "name": "worm_of_time",
+            "email": "chunkai2@outlook.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "WormOfTime\\": "src/"
+        }
+    }
+}
