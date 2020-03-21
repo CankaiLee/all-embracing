@@ -133,7 +133,7 @@ class Official extends Weixin
             return $response;
 
         } catch (\Exception $exception) {
-            $this->error($exception->getCode(), $exception->getMessage());
+            return $this->error($exception->getCode(), $exception->getMessage());
         }
     }
 }
