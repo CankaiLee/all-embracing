@@ -61,10 +61,10 @@ class HttpClient
     }
 
     /**
-     * 发送get请求
      * @param $uri
      * @param array $query
      * @return array
+     * 发送get请求
      */
     public function get($uri, $query = array()): array
     {
@@ -77,16 +77,34 @@ class HttpClient
     }
 
     /**
-     * 发送post请求
      * @param $uri
      * @param array $data
+     * @param string $data_type ['json', 'body', 'form_params', 'multipart']
      * @return array
+     * 发送post请求
      */
-    public function post($uri, $data = array()): array
+    public function post($uri, $data = array(), $data_type = 'json'): array
     {
         $response = $this->getHttpClient()->post($uri, [
-            'json' => $data
+            $data_type => $data
         ]);
+
+        return $this->_getResponseData($response);
+    }
+
+    /**
+     * @param string $method
+     * @param string $uri
+     * @param array $data
+     * @param string $data_type ['query', 'json', 'body', 'form_params', 'multipart']
+     * @return array
+     * 发送请求
+     */
+    public function request($method = 'GET', $uri = '', $data = array(), $data_type = 'query'): array
+    {
+        $response = $this->getHttpClient()->request($method, $uri, array(
+            $data_type => $data
+        ));
 
         return $this->_getResponseData($response);
     }
@@ -101,7 +119,7 @@ class HttpClient
         $is_json = strpos($content_type, 'application/json;') !== false;
         if ($response->getStatusCode() == 200) {
             $content = $response->getBody()->getContents();
-            $data = array('data' => $content);
+            $data = array('content_type' => $content_type, 'data' => $content);
             if ($is_json) {
                 $data = \GuzzleHttp\json_decode($content, true);
             }
