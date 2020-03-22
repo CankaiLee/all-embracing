@@ -37,7 +37,7 @@ class HttpClient
     /**
      * @return Client|null
      */
-    public function getHttpClient(): Client
+    public function getClient(): Client
     {
         $this->http_client = new Client([
             'base_uri' => $this->base_uri,
@@ -69,7 +69,7 @@ class HttpClient
     public function get($uri, $query = array()): array
     {
 
-        $response = $this->getHttpClient()->get($uri, [
+        $response = $this->getClient()->get($uri, [
             'query' => $query
         ]);
 
@@ -85,7 +85,7 @@ class HttpClient
      */
     public function post($uri, $data = array(), $data_type = 'json'): array
     {
-        $response = $this->getHttpClient()->post($uri, [
+        $response = $this->getClient()->post($uri, [
             $data_type => $data
         ]);
 
@@ -102,7 +102,7 @@ class HttpClient
      */
     public function request($method = 'GET', $uri = '', $data = array(), $data_type = 'query'): array
     {
-        $response = $this->getHttpClient()->request($method, $uri, array(
+        $response = $this->getClient()->request($method, $uri, array(
             $data_type => $data
         ));
 

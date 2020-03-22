@@ -28,7 +28,8 @@ trait Response
      */
     public function error($code = 500, $message = '', $data = null): array
     {
-        $this->setCode($code)->setMessage($message);
+        $this->setCode($code);
+        $this->setMessage($message);
         return $this->json($data);
     }
 
@@ -38,7 +39,8 @@ trait Response
      */
     public function success($data = null): array
     {
-        $this->setCode(0)->setMessage('请求成功');
+        $this->setCode(0);
+        $this->setMessage('请求成功');
         return $this->json($data);
     }
 }

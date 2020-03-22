@@ -17,12 +17,10 @@ trait Output
 
     /**
      * @param int $code
-     * @return Output
      */
-    public function setCode(int $code): Output
+    public function setCode(int $code)
     {
         $this->code = $code;
-        return $this;
     }
 
     /**
@@ -35,11 +33,9 @@ trait Output
 
     /**
      * @param string $message
-     * @return Output
      */
-    public function setMessage(string $message): Output
+    public function setMessage(string $message)
     {
         $this->message = $message;
-        return $this;
     }
 }
