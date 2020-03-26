@@ -17,12 +17,16 @@
         "php": ">=7.2.0",
         "guzzlehttp/guzzle": "^6.5",
         "ext-openssl": "*",
-        "ext-gd": "*"
+        "ext-gd": "*",
+        "ext-libxml": "*",
+        "ext-json": "*",
+        "ext-simplexml": "*",
+        "ext-zlib": "*"
     },
     "autoload": {
         "psr-4": {
             "WormOfTime\\": "src/"
         },
-        "files": ["helper/utils.php"]
+        "files": ["helper/utils.php", "config/constant.php"]
     }
 }

@@ -1,10 +1,4 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
-
-$tcpServer = new \WormOfTime\Swoole\TCP\TCPServer('127.0.0.1', 9501);
-
-
-
-
-
+echo 111;die;
+var_dump(\WormOfTime\ENV\ENV::Config());

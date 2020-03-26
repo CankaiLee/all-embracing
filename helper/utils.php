@@ -64,3 +64,10 @@ if (! function_exists('element')) {
         return array_key_exists($item, $array) ? $array[$item] : $default;
     }
 }
+
+if (! function_exists('env')) {
+    function env()
+    {
+
+    }
+}
