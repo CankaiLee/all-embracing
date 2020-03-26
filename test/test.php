@@ -1,4 +1,15 @@
 <?php
 
-echo 111;die;
-var_dump(\WormOfTime\ENV\ENV::Config());
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$token = \WormOfTime\JWT\JWTHelper::create('3333');
+
+sleep(2);
+
+if (\WormOfTime\JWT\JWTHelper::validate($token)) {
+    echo 'hello world,';
+} else {
+    echo 'f**k,';
+}
+
+echo "are you";

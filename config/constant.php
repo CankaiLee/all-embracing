@@ -88,4 +88,4 @@ define('N2', 3);
 define('N3', 40);
 define('N4', 10);
 
-define('ROOT_PATH', basename(__DIR__));
+define('ROOT_PATH', dirname(__DIR__));

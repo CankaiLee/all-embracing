@@ -66,8 +66,13 @@ if (! function_exists('element')) {
 }
 
 if (! function_exists('env')) {
-    function env()
+    function env($key = '')
     {
+        if (empty($key)) return '';
 
+        $config_array = parse_ini_file(ROOT_PATH . '/.env', true);
+        if (! isset($config_array[$key])) return '';
+
+        return $config_array[$key];
     }
 }
